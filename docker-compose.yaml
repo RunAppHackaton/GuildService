@@ -79,7 +79,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=25032001
       - STORAGE-DIRECTORY=ProfileService/
-      - SPRING_CLOUD_OPENFEIGN_CLIENT_CONFIG_STORAGE-SERVICE_URL=http://storage-service:6500
+      - SPRING_CLOUD_OPENFEIGN_CLIENT_CONFIG_STORAGE-SERVICE_URL=http:http://storage-service:4444
     depends_on:
       discovery-service:
         condition: service_started

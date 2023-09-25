@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ProfileServiceClient {
 
     @GetMapping("/users/{userId}")
-    ResponseEntity<UserResponse> getUserById(
-            @PathVariable int userId);
+    ResponseEntity<UserResponse> getUserById(@PathVariable int userId);
 
 }
