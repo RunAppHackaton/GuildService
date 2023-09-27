@@ -25,4 +25,9 @@ public class UserTeamModel {
     @ManyToOne()
     @JoinColumn(name = "team_id", referencedColumnName = "id")
     private TeamModel team;
+
+    public UserTeamModel(int userId, TeamModel team) {
+        this.userId = userId;
+        this.team = team;
+    }
 }

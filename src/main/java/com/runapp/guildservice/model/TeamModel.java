@@ -1,11 +1,9 @@
 package com.runapp.guildservice.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cascade;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -48,4 +46,8 @@ public class TeamModel {
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserTeamModel> userTeamModelList;
+
+    public TeamModel(int id) {
+        this.id = id;
+    }
 }

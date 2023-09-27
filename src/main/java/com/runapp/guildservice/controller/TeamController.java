@@ -70,7 +70,6 @@ public class TeamController {
             return ResponseEntity.badRequest().body(errors);
         }
         try {
-
             StoryResponse storyResponse = storyManagementServiceClient.getStoryById(teamRequest.getStoryId()).getBody();
             UserResponse userResponse = profileServiceClient.getUserById(teamRequest.getAdminId()).getBody();
             TeamModel teamModel = teamDtoMapper.toModel(teamRequest);
