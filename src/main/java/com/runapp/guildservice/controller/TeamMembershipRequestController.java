@@ -29,7 +29,7 @@ public class TeamMembershipRequestController {
 
     @PostMapping
     @Operation(summary = "Create a new team membership request", description = "Create a new team membership request with the provided data")
-    @ApiResponse(responseCode = "201", description = "Team membership request created", content = @Content(schema = @Schema(implementation = TeamMembershipRequestResponse.class)))
+    @ApiResponse(responseCode = "201", description = "Team membership request created")
     @ApiResponse(responseCode = "400", description = "Invalid input")
     public ResponseEntity<Object> createTeamMembershipRequest(
             @Parameter(description = "User ID", required = true) @RequestParam("user_id") int userId,
