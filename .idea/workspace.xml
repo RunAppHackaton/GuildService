@@ -4,7 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd8248c9-2813-4308-95c4-0424e98f60cb" name="Changes" comment="" />
+    <list default="true" id="bd8248c9-2813-4308-95c4-0424e98f60cb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/GuildService-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/GuildService-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/GuildServiceApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/controller/TeamController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/controller/UserTeamController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/dtoMapper/TeamDtoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/dtoMapper/UserTeamDtoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/request/DeleteStorageRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/request/TeamDeleteRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/request/TeamRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/request/TeamUpdateRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/request/UserTeamRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/response/DeleteResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/response/ExceptionResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/response/StorageServiceResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/response/StoryResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/response/TaskResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/response/TeamResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/response/UserResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/response/UserTeamResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/feignClient/ProfileServiceClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/feignClient/StorageServiceClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/feignClient/StoryManagementServiceClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/model/TeamModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/model/UserTeamModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/repository/TeamRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/repository/UserTeamRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/service/TeamService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/service/UserTeamService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.runapp.guildservice.controller.TeamControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.runapp.guildservice.controller.UserTeamControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.runapp.guildservice.controller.TeamControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.runapp.guildservice.controller.UserTeamControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/runapp/guildservice/controller/TeamControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/runapp/guildservice/controller/UserTeamControllerTest.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,31 +61,71 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2ajM1wWLcacUKQTmSzt3UfZqLXG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Maven.GuildService [clean].executor": "Run",
+    "Maven.GuildService [install].executor": "Run",
+    "Maven.GuildService [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.GuildServiceApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "openjdk-21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/загрузки/desk/proj.env",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="GuildServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="GuildService" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.runapp.guildservice.GuildServiceApplication" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="true" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+          <ENTRY IS_ENABLED="true" PARSER="env" IS_EXECUTABLE="false" PATH="$PROJECT_DIR$/../../../../../../../загрузки/desk/proj.env" />
+        </ENTRIES>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -48,10 +136,20 @@
       <option name="presentableId" value="Default" />
       <updated>1704827324735</updated>
       <workItem from="1704827325770" duration="28000" />
+      <workItem from="1705187606663" duration="511000" />
+      <workItem from="1705188124791" duration="86000" />
+      <workItem from="1705188216343" duration="411000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
