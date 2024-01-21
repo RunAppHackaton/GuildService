@@ -1,6 +1,7 @@
 package com.runapp.guildservice.dto.dtoMapper;
 
 import com.runapp.guildservice.dto.request.TeamRequest;
+import com.runapp.guildservice.dto.request.TeamUpdateRequest;
 import com.runapp.guildservice.dto.response.TeamResponse;
 import com.runapp.guildservice.dto.response.UserTeamResponse;
 import com.runapp.guildservice.model.TeamModel;
@@ -38,6 +39,16 @@ public class TeamDtoMapper {
         teamResponse.setMaximumPlayers(teamModel.getMaximumPlayers());
         teamResponse.setUsers_in_team(teamModel.getUserTeamModelList());
         return teamResponse;
+    }
+
+    public TeamModel updateTeamByRequest(TeamModel teamModel, TeamUpdateRequest teamUpdateRequest){
+        teamModel.setTeamName(teamUpdateRequest.getTeamName());
+        teamModel.setDescriptionTeam(teamUpdateRequest.getDescriptionTeam());
+        teamModel.setStoryId(teamUpdateRequest.getStoryId());
+        teamModel.setMaximumPlayers(teamUpdateRequest.getMaximumPlayers());
+        teamModel.setAdminId(teamUpdateRequest.getAdminId());
+        teamModel.setRanking(teamUpdateRequest.getRanking());
+        return teamModel;
     }
 
 }

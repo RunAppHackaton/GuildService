@@ -86,7 +86,7 @@ public class UserTeamControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/userteams")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonRequest))
-                .andExpect(MockMvcResultMatchers.status().isNotFound());
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
     @Test
@@ -154,7 +154,7 @@ public class UserTeamControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.put("/userteams/" + id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonRequest))
-                .andExpect(MockMvcResultMatchers.status().isNotFound());
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
     @Test

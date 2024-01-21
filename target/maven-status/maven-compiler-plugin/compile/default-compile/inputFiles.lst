@@ -5,6 +5,8 @@ D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\Guil
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\service\UserTeamService.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\dto\response\StoryResponse.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\dto\response\TaskResponse.java
+D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\exceptions\ImageDoesntExistException.java
+D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\advice\GuildExceptionHandler.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\model\TeamModel.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\controller\UserTeamController.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\repository\TeamRepository.java
@@ -15,14 +17,18 @@ D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\Guil
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\feignClient\StorageServiceClient.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\feignClient\ProfileServiceClient.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\controller\TeamController.java
+D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\exceptions\TeamBadRequestException.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\dto\request\TeamUpdateRequest.java
+D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\exceptions\UserTeamNotFoundException.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\dto\request\DeleteStorageRequest.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\dto\request\TeamRequest.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\org\example\Main.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\service\TeamService.java
+D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\dto\response\ValidationErrorResponse.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\model\UserTeamModel.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\dto\dtoMapper\UserTeamDtoMapper.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\dto\response\StorageServiceResponse.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\feignClient\StoryManagementServiceClient.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\dto\response\UserTeamResponse.java
 D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\dto\dtoMapper\TeamDtoMapper.java
+D:\My Directory\Projects\JavaProjects\SpringBootInAction\Practices\Run_App1\GuildService\src\main\java\com\runapp\guildservice\exceptions\TeamNotFoundException.java
