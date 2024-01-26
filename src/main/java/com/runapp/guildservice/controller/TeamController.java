@@ -102,6 +102,7 @@ public class TeamController {
     @ApiResponse(responseCode = "404", description = "Team not found")
     public ResponseEntity<Object> updateTeam(@Parameter(description = "Team ID", required = true) @PathVariable int id, @Valid @RequestBody TeamUpdateRequest teamUpdateRequest, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
+            // Handling validation errors
             List<String> errors = bindingResult.getAllErrors().stream()
                     .map(DefaultMessageSourceResolvable::getDefaultMessage)
                     .collect(Collectors.toList());

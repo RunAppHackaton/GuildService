@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd8248c9-2813-4308-95c4-0424e98f60cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/advice/GuildExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/dto/response/ValidationErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/exceptions/ImageDoesntExistException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/exceptions/TeamBadRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/exceptions/TeamNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/exceptions/UserTeamNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/advice/GuildExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/exceptions/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/controller/TeamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/controller/UserTeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/controller/UserTeamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/dto/dtoMapper/TeamDtoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/dto/dtoMapper/TeamDtoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/model/TeamModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runapp/guildservice/model/TeamModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/runapp/guildservice/controller/UserTeamControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/runapp/guildservice/controller/UserTeamControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/advice/GuildExceptionHandler.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/controller/TeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/controller/TeamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/controller/UserTeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/controller/UserTeamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/dtoMapper/TeamDtoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/dto/dtoMapper/TeamDtoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/model/TeamModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/runapp/guildservice/model/TeamModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +44,7 @@
     &quot;JUnit.TeamControllerDiffblueTest.testDeleteImage.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TeamControllerDiffblueTest.testUpdateTeam.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserTeamControllerTest.testCreateUserTeamWhenUserNotFoundThenNotFound.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.java in GuildService.executor&quot;: &quot;Run&quot;,
     &quot;Maven.GuildService [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.GuildService [install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.GuildService [package].executor&quot;: &quot;Run&quot;,
@@ -72,7 +60,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/My Directory/Projects/JavaProjects/SpringBootInAction/Practices/Run_App1/GuildService&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/My Directory/Projects/JavaProjects/Practices/Run_App1/StoryManagementService&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -96,7 +84,7 @@
       <recent name="com.runapp.guildservice.exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in GuildService">
+  <component name="RunManager" selected="JUnit.java in GuildService">
     <configuration name="All in GuildService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="GuildService" />
       <extension name="net.ashald.envfile">
@@ -122,7 +110,7 @@
       <module name="GuildService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.runapp.guildservice.advice.*" />
+          <option name="PATTERN" value="com.runapp.guildservice.exceptions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -138,7 +126,7 @@
       <module name="GuildService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.runapp.guildservice.advice.*" />
+          <option name="PATTERN" value="com.runapp.guildservice.exceptions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -154,7 +142,7 @@
       <module name="GuildService" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.runapp.guildservice.advice.*" />
+          <option name="PATTERN" value="com.runapp.guildservice.exceptions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -162,6 +150,14 @@
       <option name="MAIN_CLASS_NAME" value="com.runapp.guildservice.controller.UserTeamControllerTest" />
       <option name="METHOD_NAME" value="testCreateUserTeamWhenUserNotFoundThenNotFound" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in GuildService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GuildService" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -187,6 +183,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.java in GuildService" />
       <item itemvalue="JUnit.All in GuildService" />
       <item itemvalue="JUnit.TeamControllerDiffblueTest.testDeleteImage" />
       <item itemvalue="JUnit.TeamControllerDiffblueTest.testUpdateTeam" />
@@ -195,8 +192,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in GuildService" />
+        <item itemvalue="JUnit.java in GuildService" />
         <item itemvalue="JUnit.TeamControllerDiffblueTest.testUpdateTeam" />
+        <item itemvalue="JUnit.All in GuildService" />
         <item itemvalue="JUnit.TeamControllerDiffblueTest.testDeleteImage" />
         <item itemvalue="JUnit.UserTeamControllerTest.testCreateUserTeamWhenUserNotFoundThenNotFound" />
       </list>
@@ -235,6 +233,12 @@
       <workItem from="1705858330532" duration="291000" />
       <workItem from="1705858756914" duration="4623000" />
       <workItem from="1705867915325" duration="11000" />
+      <workItem from="1705868687511" duration="492000" />
+      <workItem from="1705869293646" duration="51000" />
+      <workItem from="1705869359075" duration="740000" />
+      <workItem from="1706043015759" duration="813000" />
+      <workItem from="1706168876312" duration="237000" />
+      <workItem from="1706190633128" duration="28000" />
     </task>
     <servers />
   </component>
