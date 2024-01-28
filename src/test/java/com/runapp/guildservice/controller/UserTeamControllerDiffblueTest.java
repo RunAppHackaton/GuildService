@@ -193,8 +193,7 @@ class UserTeamControllerDiffblueTest {
                 teamService, profileServiceClient);
         UserTeamRequest userTeamRequest = new UserTeamRequest(1, 1);
 
-        ResponseEntity<Object> actualUpdateUserTeamResult = userTeamController.updateUserTeam(1, userTeamRequest,
-                new BindException("Target", "Object Name"));
+        ResponseEntity<Object> actualUpdateUserTeamResult = userTeamController.updateUserTeam(1, userTeamRequest);
         verify(profileServiceClient).getUserById(anyInt());
         verify(teamRepository).findById(Mockito.<Integer>any());
         verify(userTeamRepository).findById(Mockito.<Integer>any());
@@ -270,8 +269,7 @@ class UserTeamControllerDiffblueTest {
                 teamService, profileServiceClient);
         UserTeamRequest userTeamRequest = new UserTeamRequest(1, 1);
 
-        ResponseEntity<Object> actualUpdateUserTeamResult = userTeamController.updateUserTeam(1, userTeamRequest,
-                new BindException("Target", "Object Name"));
+        ResponseEntity<Object> actualUpdateUserTeamResult = userTeamController.updateUserTeam(1, userTeamRequest);
         verify(profileServiceClient).getUserById(anyInt());
         verify(userTeamService).updateUserTeam(anyInt(), Mockito.<UserTeamModel>any());
         verify(teamRepository).findById(Mockito.<Integer>any());
@@ -369,8 +367,7 @@ class UserTeamControllerDiffblueTest {
                 profileServiceClient);
         UserTeamRequest userTeamRequest = new UserTeamRequest(1, 1);
 
-        ResponseEntity<Object> actualUpdateUserTeamResult = userTeamController.updateUserTeam(1, userTeamRequest,
-                new BindException("Target", "Object Name"));
+        ResponseEntity<Object> actualUpdateUserTeamResult = userTeamController.updateUserTeam(1, userTeamRequest);
         verify(userTeamDtoMapper).toModel(Mockito.<UserTeamRequest>any(), Mockito.<TeamModel>any());
         verify(userTeamDtoMapper).toResponse(Mockito.<UserTeamModel>any());
         verify(profileServiceClient).getUserById(anyInt());

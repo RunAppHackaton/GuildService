@@ -1,19 +1,18 @@
 package com.runapp.guildservice.controller;
 
+import com.runapp.guildservice.dto.dtoMapper.TeamDtoMapper;
 import com.runapp.guildservice.dto.request.DeleteStorageRequest;
 import com.runapp.guildservice.dto.request.TeamDeleteRequest;
 import com.runapp.guildservice.dto.request.TeamRequest;
 import com.runapp.guildservice.dto.request.TeamUpdateRequest;
-import com.runapp.guildservice.dto.response.*;
-import com.runapp.guildservice.exceptions.ImageDoesntExistException;
+import com.runapp.guildservice.dto.response.TeamResponse;
 import com.runapp.guildservice.exceptions.TeamBadRequestException;
+import com.runapp.guildservice.exceptions.TeamNotFoundException;
 import com.runapp.guildservice.feignClient.ProfileServiceClient;
 import com.runapp.guildservice.feignClient.StorageServiceClient;
 import com.runapp.guildservice.feignClient.StoryManagementServiceClient;
 import com.runapp.guildservice.model.TeamModel;
 import com.runapp.guildservice.service.TeamService;
-import com.runapp.guildservice.dto.dtoMapper.TeamDtoMapper;
-import feign.FeignException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -23,7 +22,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -31,7 +29,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -62,13 +59,7 @@ public class TeamController {
     @Operation(summary = "Create a new team", description = "Create a new team with the provided data")
     @ApiResponse(responseCode = "201", description = "Team created", content = @Content(schema = @Schema(implementation = TeamResponse.class)))
     @ApiResponse(responseCode = "400", description = "Invalid input")
-    public ResponseEntity<Object> createTeam(@Parameter(description = "Team data", required = true) @Valid @RequestBody TeamRequest teamRequest, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            List<String> errors = bindingResult.getAllErrors().stream()
-                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.toList());
-            return ResponseEntity.badRequest().body(errors);
-        }
+    public ResponseEntity<Object> createTeam(@Parameter(description = "Team data", required = true) @Valid @RequestBody TeamRequest teamRequest) {
         TeamModel teamModel = teamDtoMapper.toModel(teamRequest);
         TeamModel createdTeam = teamService.createTeam(teamModel);
         TeamResponse teamResponse = teamDtoMapper.toResponse(createdTeam);
@@ -100,14 +91,7 @@ public class TeamController {
     @ApiResponse(responseCode = "200", description = "Team updated", content = @Content(schema = @Schema(implementation = TeamResponse.class)))
     @ApiResponse(responseCode = "400", description = "Invalid input")
     @ApiResponse(responseCode = "404", description = "Team not found")
-    public ResponseEntity<Object> updateTeam(@Parameter(description = "Team ID", required = true) @PathVariable int id, @Valid @RequestBody TeamUpdateRequest teamUpdateRequest, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            // Handling validation errors
-            List<String> errors = bindingResult.getAllErrors().stream()
-                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.toList());
-            return ResponseEntity.badRequest().body(errors);
-        }
+    public ResponseEntity<Object> updateTeam(@Parameter(description = "Team ID", required = true) @PathVariable int id, @Valid @RequestBody TeamUpdateRequest teamUpdateRequest) {
         TeamModel teamModel = teamService.getTeamById(id).orElseThrow(()->new TeamBadRequestException(id));
         teamDtoMapper.updateTeamByRequest(teamModel, teamUpdateRequest);
         TeamResponse teamResponse = teamDtoMapper.toResponse(teamModel);
@@ -146,19 +130,11 @@ public class TeamController {
     @ApiResponse(responseCode = "500", description = "Internal server error")
     public ResponseEntity<Object> deleteImage(
             @Parameter(description = "Team ID", required = true) @RequestBody TeamDeleteRequest teamDeleteRequest) {
-        Optional<TeamModel> optionalTeamModel = teamService.getTeamById(teamDeleteRequest.getTeam_id());
-        if (optionalTeamModel.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Team with id " + teamDeleteRequest.getTeam_id() + " not found");
-        }
-        TeamModel teamModel = optionalTeamModel.get();
+        TeamModel teamModel = teamService.getTeamById(teamDeleteRequest.getTeam_id()).orElseThrow(()->new TeamNotFoundException(teamDeleteRequest.getTeam_id()));
         teamModel.setTeamImageUrl("DEFAULT");
         teamService.updateTeam(teamDeleteRequest.getTeam_id(), teamModel);
-        try {
-            storageServiceClient.deleteFile(new DeleteStorageRequest(teamDeleteRequest.getFile_uri(), storageDirectory));
-            return ResponseEntity.ok().build();
-        } catch (FeignException.InternalServerError e) {
-            throw new ImageDoesntExistException();
-        }
+        storageServiceClient.deleteFile(new DeleteStorageRequest(teamDeleteRequest.getFile_uri(), storageDirectory));
+        return ResponseEntity.ok().build();
     }
 }
 

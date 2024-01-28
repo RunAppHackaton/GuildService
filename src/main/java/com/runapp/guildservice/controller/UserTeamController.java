@@ -42,15 +42,7 @@ public class UserTeamController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createUserTeam(@Valid @RequestBody UserTeamRequest userTeamRequest, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            // Handling validation errors
-            List<String> errors = bindingResult.getAllErrors().stream()
-                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.toList());
-            return ResponseEntity.badRequest().body(errors);
-        }
-
+    public ResponseEntity<Object> createUserTeam(@Valid @RequestBody UserTeamRequest userTeamRequest) {
         TeamModel teamModel = teamService.getTeamById(userTeamRequest.getTeam_id()).orElseThrow(()->new TeamBadRequestException(userTeamRequest.getTeam_id()));
         UserTeamModel userTeamModel = userTeamDtoMapper.toModel(userTeamRequest, teamModel);
         UserTeamModel createdUserTeam = userTeamService.createUserTeam(userTeamModel);
@@ -76,14 +68,7 @@ public class UserTeamController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateUserTeam(@PathVariable int id, @Valid @RequestBody UserTeamRequest userTeamRequest, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            // Handling validation errors
-            List<String> errors = bindingResult.getAllErrors().stream()
-                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.toList());
-            return ResponseEntity.badRequest().body(errors);
-        }
+    public ResponseEntity<Object> updateUserTeam(@PathVariable int id, @Valid @RequestBody UserTeamRequest userTeamRequest) {
         try {
             UserResponse userResponse = profileServiceClient.getUserById(userTeamRequest.getUserId()).getBody();
             TeamModel teamModel = teamService.getTeamById(userTeamRequest.getTeam_id()).orElseThrow(()->new TeamBadRequestException(userTeamRequest.getTeam_id()));
@@ -101,6 +86,4 @@ public class UserTeamController {
         userTeamService.getUserTeamById(id).orElseThrow(()->new UserTeamNotFoundException(id));
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-
 }
