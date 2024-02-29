@@ -2,6 +2,7 @@ package com.runapp.guildservice.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
@@ -209,7 +210,7 @@ class UserTeamControllerDiffblueTest {
 
     /**
      * Method under test:
-     * {@link UserTeamController#updateUserTeam(int, UserTeamRequest, BindingResult)}
+     * {@link UserTeamController#updateUserTeam(Long, UserTeamRequest, BindingResult)}
      */
     @Test
     void testUpdateUserTeam2() {
