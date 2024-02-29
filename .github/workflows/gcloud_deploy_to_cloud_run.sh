@@ -7,5 +7,6 @@ gcloud run deploy $DOCKER_NAME_CONTAINER \
   --port=$SERVICE_SERVER_PORT \
   --add-cloudsql-instances=$SQL_INSTANCE_NAME \
   --service-account=$GCP_SQL_ACCOUNT_SERVICE_NAME \
+  --vpc-connector=$VPC_CONNECTOR_NAME \
   --env-vars-file=./secrets.json \
   --allow-unauthenticated

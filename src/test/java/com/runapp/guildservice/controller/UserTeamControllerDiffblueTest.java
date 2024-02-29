@@ -118,19 +118,6 @@ class UserTeamControllerDiffblueTest {
      */
     @Test
     void testUpdateUserTeam() {
-        //   Diffblue Cover was unable to write a Spring test,
-        //   so wrote a non-Spring test instead.
-        //   Reason: R013 No inputs found that don't throw a trivial exception.
-        //   Diffblue Cover tried to run the arrange/act section, but the method under
-        //   test threw
-        //   jakarta.servlet.ServletException: Request processing failed: java.lang.NullPointerException: Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because the return value of "com.runapp.guildservice.feignClient.ProfileServiceClient.getUserById(int)" is null
-        //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:593)
-        //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-        //   java.lang.NullPointerException: Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because the return value of "com.runapp.guildservice.feignClient.ProfileServiceClient.getUserById(int)" is null
-        //       at com.runapp.guildservice.controller.UserTeamController.updateUserTeam(UserTeamController.java:96)
-        //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:593)
-        //       at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-        //   See https://diff.blue/R013 to resolve this issue.
 
         TeamModel team = new TeamModel();
         team.setAdminId(1);
