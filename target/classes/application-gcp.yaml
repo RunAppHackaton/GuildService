@@ -64,5 +64,9 @@ spring:
             url: ${STORY-MANAGER_SERVICE_URL}
           profile-service:
             url: ${PROFILE_SERVICE_URL}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
 
 storage-directory: GuildService/
