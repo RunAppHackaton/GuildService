@@ -11,10 +11,10 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: ${ENDPOINTS_INCLUDE:*}
   endpoint:
     health:
-      show-details: always
+      show-details: ${HEALTH_SHOW_DETAILS:always}
 springdoc:
   packagesToScan: com.runapp.guildservice
 

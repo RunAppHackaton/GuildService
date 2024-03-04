@@ -5,7 +5,6 @@ com\runapp\guildservice\dto\dtoMapper\UserTeamDtoMapper.class
 com\runapp\guildservice\model\TeamModel.class
 com\runapp\guildservice\dto\request\DeleteStorageRequest.class
 com\runapp\guildservice\repository\UserTeamRepository.class
-org\example\Main.class
 com\runapp\guildservice\dto\request\TeamRequest.class
 com\runapp\guildservice\dto\response\ExceptionResponse.class
 com\runapp\guildservice\dto\request\TeamUpdateRequest.class
