@@ -1,23 +1,19 @@
 package com.runapp.guildservice.controller;
 
 import com.runapp.guildservice.dto.request.UserTeamRequest;
-import com.runapp.guildservice.dto.response.UserResponse;
 import com.runapp.guildservice.dto.response.UserTeamResponse;
 import com.runapp.guildservice.exceptions.TeamBadRequestException;
 import com.runapp.guildservice.exceptions.UserTeamNotFoundException;
-import com.runapp.guildservice.feignClient.ProfileServiceClient;
 import com.runapp.guildservice.model.TeamModel;
 import com.runapp.guildservice.model.UserTeamModel;
 import com.runapp.guildservice.service.TeamService;
 import com.runapp.guildservice.service.UserTeamService;
-import com.runapp.guildservice.dto.dtoMapper.UserTeamDtoMapper;
+import com.runapp.guildservice.dtoMapper.UserTeamDtoMapper;
 import feign.FeignException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,14 +27,12 @@ public class UserTeamController {
     private final UserTeamDtoMapper userTeamDtoMapper;
     private final TeamService teamService;
 
-    private final ProfileServiceClient profileServiceClient;
 
     @Autowired
-    public UserTeamController(UserTeamService userTeamService, UserTeamDtoMapper userTeamDtoMapper, TeamService teamService, ProfileServiceClient profileServiceClient) {
+    public UserTeamController(UserTeamService userTeamService, UserTeamDtoMapper userTeamDtoMapper, TeamService teamService) {
         this.userTeamService = userTeamService;
         this.userTeamDtoMapper = userTeamDtoMapper;
         this.teamService = teamService;
-        this.profileServiceClient = profileServiceClient;
     }
 
     @PostMapping
@@ -70,7 +64,6 @@ public class UserTeamController {
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateUserTeam(@PathVariable int id, @Valid @RequestBody UserTeamRequest userTeamRequest) {
         try {
-            UserResponse userResponse = profileServiceClient.getUserById(userTeamRequest.getUserId()).getBody();
             TeamModel teamModel = teamService.getTeamById(userTeamRequest.getTeam_id()).orElseThrow(()->new TeamBadRequestException(userTeamRequest.getTeam_id()));
             UserTeamModel userTeamModel = userTeamDtoMapper.toModel(userTeamRequest, teamModel);
             UserTeamModel updatedUserTeam = userTeamService.updateUserTeam(id, userTeamModel);

@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.runapp.guildservice.staticObject.StaticTeam;
+import com.runapp.guildservice.staticObject.StaticUserTeam;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -40,40 +42,10 @@ class UserTeamServiceDiffblueTest {
      */
     @Test
     void testCreateUserTeam() {
-        TeamModel team = new TeamModel();
-        team.setAdminId(1);
-        team.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team.setDescriptionTeam("Description Team");
-        team.setId(1);
-        team.setMaximumPlayers(3);
-        team.setRanking(1L);
-        team.setStoryId(1);
-        team.setTeamImageUrl("https://example.org/example");
-        team.setTeamName("Team Name");
-        team.setUserTeamModelList(new ArrayList<>());
-
-        UserTeamModel userTeamModel = new UserTeamModel();
-        userTeamModel.setId(1);
-        userTeamModel.setTeam(team);
-        userTeamModel.setUserId(1);
+        UserTeamModel userTeamModel = StaticUserTeam.userTeamModel();
         when(userTeamRepository.save(Mockito.<UserTeamModel>any())).thenReturn(userTeamModel);
 
-        TeamModel team2 = new TeamModel();
-        team2.setAdminId(1);
-        team2.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team2.setDescriptionTeam("Description Team");
-        team2.setId(1);
-        team2.setMaximumPlayers(3);
-        team2.setRanking(1L);
-        team2.setStoryId(1);
-        team2.setTeamImageUrl("https://example.org/example");
-        team2.setTeamName("Team Name");
-        team2.setUserTeamModelList(new ArrayList<>());
-
-        UserTeamModel userTeam = new UserTeamModel();
-        userTeam.setId(1);
-        userTeam.setTeam(team2);
-        userTeam.setUserId(1);
+        UserTeamModel userTeam = StaticUserTeam.userTeamModel();
         UserTeamModel actualCreateUserTeamResult = userTeamService.createUserTeam(userTeam);
         verify(userTeamRepository).save(Mockito.<UserTeamModel>any());
         assertSame(userTeamModel, actualCreateUserTeamResult);
@@ -86,22 +58,7 @@ class UserTeamServiceDiffblueTest {
     void testCreateUserTeam2() {
         when(userTeamRepository.save(Mockito.<UserTeamModel>any())).thenThrow(new IllegalArgumentException("foo"));
 
-        TeamModel team = new TeamModel();
-        team.setAdminId(1);
-        team.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team.setDescriptionTeam("Description Team");
-        team.setId(1);
-        team.setMaximumPlayers(3);
-        team.setRanking(1L);
-        team.setStoryId(1);
-        team.setTeamImageUrl("https://example.org/example");
-        team.setTeamName("Team Name");
-        team.setUserTeamModelList(new ArrayList<>());
-
-        UserTeamModel userTeam = new UserTeamModel();
-        userTeam.setId(1);
-        userTeam.setTeam(team);
-        userTeam.setUserId(1);
+        UserTeamModel userTeam = StaticUserTeam.userTeamModel();
         assertThrows(IllegalArgumentException.class, () -> userTeamService.createUserTeam(userTeam));
         verify(userTeamRepository).save(Mockito.<UserTeamModel>any());
     }
@@ -111,23 +68,8 @@ class UserTeamServiceDiffblueTest {
      */
     @Test
     void testGetUserTeamById() {
-        TeamModel team = new TeamModel();
-        team.setAdminId(1);
-        team.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team.setDescriptionTeam("Description Team");
-        team.setId(1);
-        team.setMaximumPlayers(3);
-        team.setRanking(1L);
-        team.setStoryId(1);
-        team.setTeamImageUrl("https://example.org/example");
-        team.setTeamName("Team Name");
-        team.setUserTeamModelList(new ArrayList<>());
-
-        UserTeamModel userTeamModel = new UserTeamModel();
-        userTeamModel.setId(1);
-        userTeamModel.setTeam(team);
-        userTeamModel.setUserId(1);
-        Optional<UserTeamModel> ofResult = Optional.of(userTeamModel);
+        UserTeamModel userTeam = StaticUserTeam.userTeamModel();
+        Optional<UserTeamModel> ofResult = Optional.of(userTeam);
         when(userTeamRepository.findById(Mockito.<Integer>any())).thenReturn(ofResult);
         Optional<UserTeamModel> actualUserTeamById = userTeamService.getUserTeamById(1);
         verify(userTeamRepository).findById(Mockito.<Integer>any());
@@ -173,59 +115,14 @@ class UserTeamServiceDiffblueTest {
      */
     @Test
     void testUpdateUserTeam() {
-        TeamModel team = new TeamModel();
-        team.setAdminId(1);
-        team.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team.setDescriptionTeam("Description Team");
-        team.setId(1);
-        team.setMaximumPlayers(3);
-        team.setRanking(1L);
-        team.setStoryId(1);
-        team.setTeamImageUrl("https://example.org/example");
-        team.setTeamName("Team Name");
-        team.setUserTeamModelList(new ArrayList<>());
-
-        UserTeamModel userTeamModel = new UserTeamModel();
-        userTeamModel.setId(1);
-        userTeamModel.setTeam(team);
-        userTeamModel.setUserId(1);
+        UserTeamModel userTeamModel = StaticUserTeam.userTeamModel();
         Optional<UserTeamModel> ofResult = Optional.of(userTeamModel);
 
-        TeamModel team2 = new TeamModel();
-        team2.setAdminId(1);
-        team2.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team2.setDescriptionTeam("Description Team");
-        team2.setId(1);
-        team2.setMaximumPlayers(3);
-        team2.setRanking(1L);
-        team2.setStoryId(1);
-        team2.setTeamImageUrl("https://example.org/example");
-        team2.setTeamName("Team Name");
-        team2.setUserTeamModelList(new ArrayList<>());
-
-        UserTeamModel userTeamModel2 = new UserTeamModel();
-        userTeamModel2.setId(1);
-        userTeamModel2.setTeam(team2);
-        userTeamModel2.setUserId(1);
+        UserTeamModel userTeamModel2 = StaticUserTeam.userTeamModel();
         when(userTeamRepository.save(Mockito.<UserTeamModel>any())).thenReturn(userTeamModel2);
         when(userTeamRepository.findById(Mockito.<Integer>any())).thenReturn(ofResult);
 
-        TeamModel team3 = new TeamModel();
-        team3.setAdminId(1);
-        team3.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team3.setDescriptionTeam("Description Team");
-        team3.setId(1);
-        team3.setMaximumPlayers(3);
-        team3.setRanking(1L);
-        team3.setStoryId(1);
-        team3.setTeamImageUrl("https://example.org/example");
-        team3.setTeamName("Team Name");
-        team3.setUserTeamModelList(new ArrayList<>());
-
-        UserTeamModel updatedUserTeam = new UserTeamModel();
-        updatedUserTeam.setId(1);
-        updatedUserTeam.setTeam(team3);
-        updatedUserTeam.setUserId(1);
+        UserTeamModel updatedUserTeam = StaticUserTeam.userTeamModel();
         UserTeamModel actualUpdateUserTeamResult = userTeamService.updateUserTeam(1, updatedUserTeam);
         verify(userTeamRepository).findById(Mockito.<Integer>any());
         verify(userTeamRepository).save(Mockito.<UserTeamModel>any());
@@ -238,42 +135,12 @@ class UserTeamServiceDiffblueTest {
      */
     @Test
     void testUpdateUserTeam2() {
-        TeamModel team = new TeamModel();
-        team.setAdminId(1);
-        team.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team.setDescriptionTeam("Description Team");
-        team.setId(1);
-        team.setMaximumPlayers(3);
-        team.setRanking(1L);
-        team.setStoryId(1);
-        team.setTeamImageUrl("https://example.org/example");
-        team.setTeamName("Team Name");
-        team.setUserTeamModelList(new ArrayList<>());
-
-        UserTeamModel userTeamModel = new UserTeamModel();
-        userTeamModel.setId(1);
-        userTeamModel.setTeam(team);
-        userTeamModel.setUserId(1);
+        UserTeamModel userTeamModel = StaticUserTeam.userTeamModel();
         Optional<UserTeamModel> ofResult = Optional.of(userTeamModel);
         when(userTeamRepository.save(Mockito.<UserTeamModel>any())).thenThrow(new IllegalArgumentException("foo"));
         when(userTeamRepository.findById(Mockito.<Integer>any())).thenReturn(ofResult);
 
-        TeamModel team2 = new TeamModel();
-        team2.setAdminId(1);
-        team2.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team2.setDescriptionTeam("Description Team");
-        team2.setId(1);
-        team2.setMaximumPlayers(3);
-        team2.setRanking(1L);
-        team2.setStoryId(1);
-        team2.setTeamImageUrl("https://example.org/example");
-        team2.setTeamName("Team Name");
-        team2.setUserTeamModelList(new ArrayList<>());
-
-        UserTeamModel updatedUserTeam = new UserTeamModel();
-        updatedUserTeam.setId(1);
-        updatedUserTeam.setTeam(team2);
-        updatedUserTeam.setUserId(1);
+        UserTeamModel updatedUserTeam = StaticUserTeam.userTeamModel();
         assertThrows(IllegalArgumentException.class, () -> userTeamService.updateUserTeam(1, updatedUserTeam));
         verify(userTeamRepository).findById(Mockito.<Integer>any());
         verify(userTeamRepository).save(Mockito.<UserTeamModel>any());
@@ -287,22 +154,7 @@ class UserTeamServiceDiffblueTest {
         Optional<UserTeamModel> emptyResult = Optional.empty();
         when(userTeamRepository.findById(Mockito.<Integer>any())).thenReturn(emptyResult);
 
-        TeamModel team = new TeamModel();
-        team.setAdminId(1);
-        team.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team.setDescriptionTeam("Description Team");
-        team.setId(1);
-        team.setMaximumPlayers(3);
-        team.setRanking(1L);
-        team.setStoryId(1);
-        team.setTeamImageUrl("https://example.org/example");
-        team.setTeamName("Team Name");
-        team.setUserTeamModelList(new ArrayList<>());
-
-        UserTeamModel updatedUserTeam = new UserTeamModel();
-        updatedUserTeam.setId(1);
-        updatedUserTeam.setTeam(team);
-        updatedUserTeam.setUserId(1);
+        UserTeamModel updatedUserTeam = StaticUserTeam.userTeamModel();
         assertThrows(IllegalArgumentException.class, () -> userTeamService.updateUserTeam(1, updatedUserTeam));
         verify(userTeamRepository).findById(Mockito.<Integer>any());
     }

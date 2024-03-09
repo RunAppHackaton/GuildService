@@ -1,7 +1,7 @@
+com\runapp\guildservice\dtoMapper\TeamDtoMapper.class
 com\runapp\guildservice\exceptions\TeamBadRequestException.class
 com\runapp\guildservice\dto\response\ValidationErrorResponse.class
 com\runapp\guildservice\exceptions\UserTeamNotFoundException.class
-com\runapp\guildservice\dto\dtoMapper\UserTeamDtoMapper.class
 com\runapp\guildservice\model\TeamModel.class
 com\runapp\guildservice\dto\request\DeleteStorageRequest.class
 com\runapp\guildservice\repository\UserTeamRepository.class
@@ -11,6 +11,7 @@ com\runapp\guildservice\dto\request\TeamUpdateRequest.class
 com\runapp\guildservice\dto\response\StoryResponse.class
 com\runapp\guildservice\controller\TeamController.class
 com\runapp\guildservice\dto\response\UserTeamResponse.class
+com\runapp\guildservice\dtoMapper\UserTeamDtoMapper.class
 com\runapp\guildservice\dto\request\UserTeamRequest.class
 com\runapp\guildservice\exceptions\ImageDoesntExistException.class
 com\runapp\guildservice\service\UserTeamService.class
@@ -23,11 +24,9 @@ com\runapp\guildservice\model\UserTeamModel.class
 com\runapp\guildservice\dto\response\TaskResponse.class
 com\runapp\guildservice\service\TeamService.class
 com\runapp\guildservice\exceptions\GlobalExceptionHandler.class
-com\runapp\guildservice\dto\dtoMapper\TeamDtoMapper.class
 com\runapp\guildservice\GuildServiceApplication.class
 com\runapp\guildservice\dto\response\StorageServiceResponse.class
 com\runapp\guildservice\feignClient\StoryManagementServiceClient.class
 com\runapp\guildservice\controller\UserTeamController.class
 com\runapp\guildservice\dto\request\TeamDeleteRequest.class
 com\runapp\guildservice\feignClient\StorageServiceClient.class
-com\runapp\guildservice\feignClient\ProfileServiceClient.class

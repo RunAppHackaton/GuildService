@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserResponse {
-    private int id;
+    private String id;
     private String username;
     private String firstName;
     private String lastName;

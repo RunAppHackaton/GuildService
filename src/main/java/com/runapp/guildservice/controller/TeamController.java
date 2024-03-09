@@ -1,6 +1,6 @@
 package com.runapp.guildservice.controller;
 
-import com.runapp.guildservice.dto.dtoMapper.TeamDtoMapper;
+import com.runapp.guildservice.dtoMapper.TeamDtoMapper;
 import com.runapp.guildservice.dto.request.DeleteStorageRequest;
 import com.runapp.guildservice.dto.request.TeamDeleteRequest;
 import com.runapp.guildservice.dto.request.TeamRequest;
@@ -8,7 +8,6 @@ import com.runapp.guildservice.dto.request.TeamUpdateRequest;
 import com.runapp.guildservice.dto.response.TeamResponse;
 import com.runapp.guildservice.exceptions.TeamBadRequestException;
 import com.runapp.guildservice.exceptions.TeamNotFoundException;
-import com.runapp.guildservice.feignClient.ProfileServiceClient;
 import com.runapp.guildservice.feignClient.StorageServiceClient;
 import com.runapp.guildservice.feignClient.StoryManagementServiceClient;
 import com.runapp.guildservice.model.TeamModel;
@@ -24,7 +23,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -38,8 +36,6 @@ public class TeamController {
     private final TeamService teamService;
     private final TeamDtoMapper teamDtoMapper;
 
-    private final ProfileServiceClient profileServiceClient;
-
     private final StoryManagementServiceClient storyManagementServiceClient;
 
     @Value("${storage-directory}")
@@ -47,10 +43,9 @@ public class TeamController {
     private final StorageServiceClient storageServiceClient;
 
     @Autowired
-    public TeamController(TeamService teamService, TeamDtoMapper teamDtoMapper, ProfileServiceClient profileServiceClient, StoryManagementServiceClient storyManagementServiceClient, StorageServiceClient storageServiceClient) {
+    public TeamController(TeamService teamService, TeamDtoMapper teamDtoMapper, StoryManagementServiceClient storyManagementServiceClient, StorageServiceClient storageServiceClient) {
         this.teamService = teamService;
         this.teamDtoMapper = teamDtoMapper;
-        this.profileServiceClient = profileServiceClient;
         this.storyManagementServiceClient = storyManagementServiceClient;
         this.storageServiceClient = storageServiceClient;
     }
@@ -59,7 +54,9 @@ public class TeamController {
     @Operation(summary = "Create a new team", description = "Create a new team with the provided data")
     @ApiResponse(responseCode = "201", description = "Team created", content = @Content(schema = @Schema(implementation = TeamResponse.class)))
     @ApiResponse(responseCode = "400", description = "Invalid input")
-    public ResponseEntity<Object> createTeam(@Parameter(description = "Team data", required = true) @Valid @RequestBody TeamRequest teamRequest) {
+    public ResponseEntity<Object> createTeam(@Parameter(description = "Team data", required = true) @Valid @RequestBody TeamRequest teamRequest,
+                                             @RequestHeader("X-UserId") String userId) {
+        teamRequest.setAdminId(userId);
         TeamModel teamModel = teamDtoMapper.toModel(teamRequest);
         TeamModel createdTeam = teamService.createTeam(teamModel);
         TeamResponse teamResponse = teamDtoMapper.toResponse(createdTeam);

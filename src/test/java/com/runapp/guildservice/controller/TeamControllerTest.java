@@ -1,14 +1,15 @@
 package com.runapp.guildservice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.runapp.guildservice.dto.dtoMapper.TeamDtoMapper;
+import com.runapp.guildservice.dtoMapper.TeamDtoMapper;
 import com.runapp.guildservice.dto.request.TeamRequest;
 import com.runapp.guildservice.dto.request.TeamUpdateRequest;
 import com.runapp.guildservice.dto.response.TeamResponse;
-import com.runapp.guildservice.feignClient.ProfileServiceClient;
+import com.runapp.guildservice.exceptions.GlobalExceptionHandler;
 import com.runapp.guildservice.feignClient.StoryManagementServiceClient;
 import com.runapp.guildservice.model.TeamModel;
 import com.runapp.guildservice.service.TeamService;
+import com.runapp.guildservice.staticObject.StaticTeam;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +20,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import java.time.LocalDateTime;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -42,9 +43,6 @@ public class TeamControllerTest {
     private TeamDtoMapper teamDtoMapper;
 
     @Mock
-    private ProfileServiceClient profileServiceClient;
-
-    @Mock
     private StoryManagementServiceClient storyManagementServiceClient;
 
     @InjectMocks
@@ -55,13 +53,14 @@ public class TeamControllerTest {
     private ObjectMapper objectMapper = new ObjectMapper();
     @BeforeEach
     public void setup() {
-        mockMvc = MockMvcBuilders.standaloneSetup(teamController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(teamController)
+                .setControllerAdvice(GlobalExceptionHandler.class)
+                .build();
     }
 
     @Test
     public void testUpdateTeamWhenNonIntegerIdThenReturnBadRequest() throws Exception {
-        TeamUpdateRequest teamUpdateRequest = new TeamUpdateRequest("Team1", "Description", 1, 5, 1, 0L);
-
+        TeamUpdateRequest teamUpdateRequest = StaticTeam.teamUpdateRequest();
         mockMvc.perform(MockMvcRequestBuilders.put("/teams/invalid")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(teamUpdateRequest)))
@@ -70,7 +69,7 @@ public class TeamControllerTest {
 
     @Test
     public void testUpdateTeamWhenValidationErrorsThenReturnBadRequest() throws Exception {
-        TeamUpdateRequest teamUpdateRequest = new TeamUpdateRequest("", "", -1, -1, -1, -1L);
+        TeamUpdateRequest teamUpdateRequest = StaticTeam.teamUpdateRequestBad();
 
         mockMvc.perform(MockMvcRequestBuilders.put("/teams/1")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -81,7 +80,7 @@ public class TeamControllerTest {
 
     @Test
     public void testCreateTeamWhenInvalidRequestThenBadRequest() throws Exception {
-        TeamRequest teamRequest = new TeamRequest("", "", -1, -1, -1);
+        TeamRequest teamRequest = StaticTeam.teamRequestBad();
 
         mockMvc.perform(post("/teams")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -92,7 +91,7 @@ public class TeamControllerTest {
     @Test
     public void testDeleteTeamWhenTeamExistsThenTeamDeleted() throws Exception {
         int teamId = 1;
-        TeamModel teamModel = new TeamModel(1, "Team1", "Description", null, "DEFAULT", 0L, 1, 5, 1, null);
+        TeamModel teamModel = StaticTeam.teamModel2();
 
         when(teamService.getTeamById(teamId)).thenReturn(Optional.of(teamModel));
 
@@ -103,8 +102,8 @@ public class TeamControllerTest {
 
     @Test
     public void testGetTeamByIdWhenTeamFoundThenReturnTeamResponse() throws Exception {
-        TeamModel teamModel = new TeamModel(1, "Team1", "Description", null, "DEFAULT", 0L, 1, 5, 1, null);
-        TeamResponse teamResponse = new TeamResponse(1, "Team1", "Description", null, "DEFAULT", 0L, 1, 5, 1, null);
+        TeamModel teamModel = StaticTeam.teamModel2();
+        TeamResponse teamResponse = StaticTeam.teamResponse2();
 
         when(teamService.getTeamById(anyInt())).thenReturn(Optional.of(teamModel));
         when(teamDtoMapper.toResponse(any(TeamModel.class))).thenReturn(teamResponse);
@@ -134,7 +133,7 @@ public class TeamControllerTest {
 
     @Test
     public void testUpdateTeamWhenInvalidRequestThenBadRequest() throws Exception {
-        TeamUpdateRequest teamUpdateRequest = new TeamUpdateRequest("", "", -1, -1, -1, -1L);
+        TeamUpdateRequest teamUpdateRequest = StaticTeam.teamUpdateRequest();
 
         mockMvc.perform(MockMvcRequestBuilders.put("/teams/1")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -144,8 +143,8 @@ public class TeamControllerTest {
 
     @Test
     public void testGetAllTeamsWhenValidParametersThenSuccess() throws Exception {
-        TeamModel teamModel = new TeamModel(1, "Team1", "Description", null, "DEFAULT", 0L, 1, 5, 1, null);
-        TeamResponse teamResponse = new TeamResponse(1, "Team1", "Description", null, "DEFAULT", 0L, 1, 5, 1, null);
+        TeamModel teamModel = StaticTeam.teamModel2();
+        TeamResponse teamResponse = StaticTeam.teamResponse2();
         List<TeamModel> teamModels = Arrays.asList(teamModel);
         List<TeamResponse> teamResponses = Arrays.asList(teamResponse);
 

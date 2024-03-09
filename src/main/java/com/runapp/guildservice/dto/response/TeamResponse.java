@@ -29,7 +29,7 @@ public class TeamResponse {
 
     private int maximumPlayers;
 
-    private int adminId;
+    private String adminId;
 
     private List<UserTeamModel> users_in_team;
 }

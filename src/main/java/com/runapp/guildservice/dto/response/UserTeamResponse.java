@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class UserTeamResponse {
     private int id;
 
-    private int userId;
+    private String userId;
 
     private int teamId;
 }

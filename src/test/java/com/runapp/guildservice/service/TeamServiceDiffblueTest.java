@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.runapp.guildservice.staticObject.StaticTeam;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -39,30 +40,10 @@ class TeamServiceDiffblueTest {
      */
     @Test
     void testCreateTeam() {
-        TeamModel teamModel = new TeamModel();
-        teamModel.setAdminId(1);
-        teamModel.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        teamModel.setDescriptionTeam("Description Team");
-        teamModel.setId(1);
-        teamModel.setMaximumPlayers(3);
-        teamModel.setRanking(1L);
-        teamModel.setStoryId(1);
-        teamModel.setTeamImageUrl("https://example.org/example");
-        teamModel.setTeamName("Team Name");
-        teamModel.setUserTeamModelList(new ArrayList<>());
+        TeamModel teamModel = StaticTeam.teamModel();
         when(teamRepository.save(Mockito.<TeamModel>any())).thenReturn(teamModel);
 
-        TeamModel team = new TeamModel();
-        team.setAdminId(1);
-        team.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team.setDescriptionTeam("Description Team");
-        team.setId(1);
-        team.setMaximumPlayers(3);
-        team.setRanking(1L);
-        team.setStoryId(1);
-        team.setTeamImageUrl("https://example.org/example");
-        team.setTeamName("Team Name");
-        team.setUserTeamModelList(new ArrayList<>());
+        TeamModel team = StaticTeam.teamModel();
         TeamModel actualCreateTeamResult = teamService.createTeam(team);
         verify(teamRepository).save(Mockito.<TeamModel>any());
         assertSame(teamModel, actualCreateTeamResult);
@@ -75,17 +56,7 @@ class TeamServiceDiffblueTest {
     void testCreateTeam2() {
         when(teamRepository.save(Mockito.<TeamModel>any())).thenThrow(new IllegalArgumentException("foo"));
 
-        TeamModel team = new TeamModel();
-        team.setAdminId(1);
-        team.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        team.setDescriptionTeam("Description Team");
-        team.setId(1);
-        team.setMaximumPlayers(3);
-        team.setRanking(1L);
-        team.setStoryId(1);
-        team.setTeamImageUrl("https://example.org/example");
-        team.setTeamName("Team Name");
-        team.setUserTeamModelList(new ArrayList<>());
+        TeamModel team = StaticTeam.teamModel();
         assertThrows(IllegalArgumentException.class, () -> teamService.createTeam(team));
         verify(teamRepository).save(Mockito.<TeamModel>any());
     }
@@ -95,17 +66,7 @@ class TeamServiceDiffblueTest {
      */
     @Test
     void testGetTeamById() {
-        TeamModel teamModel = new TeamModel();
-        teamModel.setAdminId(1);
-        teamModel.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        teamModel.setDescriptionTeam("Description Team");
-        teamModel.setId(1);
-        teamModel.setMaximumPlayers(3);
-        teamModel.setRanking(1L);
-        teamModel.setStoryId(1);
-        teamModel.setTeamImageUrl("https://example.org/example");
-        teamModel.setTeamName("Team Name");
-        teamModel.setUserTeamModelList(new ArrayList<>());
+        TeamModel teamModel = StaticTeam.teamModel();
         Optional<TeamModel> ofResult = Optional.of(teamModel);
         when(teamRepository.findById(Mockito.<Integer>any())).thenReturn(ofResult);
         Optional<TeamModel> actualTeamById = teamService.getTeamById(1);
@@ -152,44 +113,14 @@ class TeamServiceDiffblueTest {
      */
     @Test
     void testUpdateTeam() {
-        TeamModel teamModel = new TeamModel();
-        teamModel.setAdminId(1);
-        teamModel.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        teamModel.setDescriptionTeam("Description Team");
-        teamModel.setId(1);
-        teamModel.setMaximumPlayers(3);
-        teamModel.setRanking(1L);
-        teamModel.setStoryId(1);
-        teamModel.setTeamImageUrl("https://example.org/example");
-        teamModel.setTeamName("Team Name");
-        teamModel.setUserTeamModelList(new ArrayList<>());
+        TeamModel teamModel = StaticTeam.teamModel();
         Optional<TeamModel> ofResult = Optional.of(teamModel);
 
-        TeamModel teamModel2 = new TeamModel();
-        teamModel2.setAdminId(1);
-        teamModel2.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        teamModel2.setDescriptionTeam("Description Team");
-        teamModel2.setId(1);
-        teamModel2.setMaximumPlayers(3);
-        teamModel2.setRanking(1L);
-        teamModel2.setStoryId(1);
-        teamModel2.setTeamImageUrl("https://example.org/example");
-        teamModel2.setTeamName("Team Name");
-        teamModel2.setUserTeamModelList(new ArrayList<>());
+        TeamModel teamModel2 = StaticTeam.teamModel();
         when(teamRepository.save(Mockito.<TeamModel>any())).thenReturn(teamModel2);
         when(teamRepository.findById(Mockito.<Integer>any())).thenReturn(ofResult);
 
-        TeamModel updatedTeam = new TeamModel();
-        updatedTeam.setAdminId(1);
-        updatedTeam.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        updatedTeam.setDescriptionTeam("Description Team");
-        updatedTeam.setId(1);
-        updatedTeam.setMaximumPlayers(3);
-        updatedTeam.setRanking(1L);
-        updatedTeam.setStoryId(1);
-        updatedTeam.setTeamImageUrl("https://example.org/example");
-        updatedTeam.setTeamName("Team Name");
-        updatedTeam.setUserTeamModelList(new ArrayList<>());
+        TeamModel updatedTeam = StaticTeam.teamModel();
         TeamModel actualUpdateTeamResult = teamService.updateTeam(1, updatedTeam);
         verify(teamRepository).findById(Mockito.<Integer>any());
         verify(teamRepository).save(Mockito.<TeamModel>any());
@@ -202,32 +133,12 @@ class TeamServiceDiffblueTest {
      */
     @Test
     void testUpdateTeam2() {
-        TeamModel teamModel = new TeamModel();
-        teamModel.setAdminId(1);
-        teamModel.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        teamModel.setDescriptionTeam("Description Team");
-        teamModel.setId(1);
-        teamModel.setMaximumPlayers(3);
-        teamModel.setRanking(1L);
-        teamModel.setStoryId(1);
-        teamModel.setTeamImageUrl("https://example.org/example");
-        teamModel.setTeamName("Team Name");
-        teamModel.setUserTeamModelList(new ArrayList<>());
+        TeamModel teamModel = StaticTeam.teamModel();
         Optional<TeamModel> ofResult = Optional.of(teamModel);
         when(teamRepository.save(Mockito.<TeamModel>any())).thenThrow(new IllegalArgumentException("foo"));
         when(teamRepository.findById(Mockito.<Integer>any())).thenReturn(ofResult);
 
-        TeamModel updatedTeam = new TeamModel();
-        updatedTeam.setAdminId(1);
-        updatedTeam.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        updatedTeam.setDescriptionTeam("Description Team");
-        updatedTeam.setId(1);
-        updatedTeam.setMaximumPlayers(3);
-        updatedTeam.setRanking(1L);
-        updatedTeam.setStoryId(1);
-        updatedTeam.setTeamImageUrl("https://example.org/example");
-        updatedTeam.setTeamName("Team Name");
-        updatedTeam.setUserTeamModelList(new ArrayList<>());
+        TeamModel updatedTeam = StaticTeam.teamModel();
         assertThrows(IllegalArgumentException.class, () -> teamService.updateTeam(1, updatedTeam));
         verify(teamRepository).findById(Mockito.<Integer>any());
         verify(teamRepository).save(Mockito.<TeamModel>any());
@@ -241,17 +152,7 @@ class TeamServiceDiffblueTest {
         Optional<TeamModel> emptyResult = Optional.empty();
         when(teamRepository.findById(Mockito.<Integer>any())).thenReturn(emptyResult);
 
-        TeamModel updatedTeam = new TeamModel();
-        updatedTeam.setAdminId(1);
-        updatedTeam.setCreateDate(LocalDate.of(1970, 1, 1).atStartOfDay());
-        updatedTeam.setDescriptionTeam("Description Team");
-        updatedTeam.setId(1);
-        updatedTeam.setMaximumPlayers(3);
-        updatedTeam.setRanking(1L);
-        updatedTeam.setStoryId(1);
-        updatedTeam.setTeamImageUrl("https://example.org/example");
-        updatedTeam.setTeamName("Team Name");
-        updatedTeam.setUserTeamModelList(new ArrayList<>());
+        TeamModel updatedTeam = StaticTeam.teamModel();
         assertThrows(IllegalArgumentException.class, () -> teamService.updateTeam(1, updatedTeam));
         verify(teamRepository).findById(Mockito.<Integer>any());
     }

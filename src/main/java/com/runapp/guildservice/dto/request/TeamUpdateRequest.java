@@ -25,8 +25,7 @@ public class TeamUpdateRequest {
     @Positive(message = "Maximum players must be a positive integer")
     private int maximumPlayers;
 
-    @Positive(message = "Admin ID must be a positive integer")
-    private int adminId;
+    private String adminId;
 
     @PositiveOrZero(message = "Rating must be a positive integer ot zero")
     private Long ranking;

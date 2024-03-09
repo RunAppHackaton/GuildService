@@ -14,8 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserTeamRequest {
 
-    @Positive(message = "user id can't be zero")
-    private int userId;
+    private String userId;
 
     @Positive(message = "team id can't be zero")
     private int team_id;

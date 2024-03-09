@@ -19,7 +19,7 @@ public class UserTeamModel {
     private int id;
 
     @Column(name = "user_id")
-    private int userId;
+    private String userId;
 
     @JsonIgnore
     @ManyToOne()

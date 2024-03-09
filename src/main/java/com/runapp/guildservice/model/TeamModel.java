@@ -51,9 +51,8 @@ public class TeamModel {
     @Column(name = "maximum_number_of_players_in_team")
     private int maximumPlayers;
 
-    @Positive(message = "Admin ID must be a positive integer")
     @Column(name = "admin_id")
-    private int adminId;
+    private String adminId;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserTeamModel> userTeamModelList;
